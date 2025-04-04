@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Electron</title>
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:"
+    />
+
+    <link href="./assets/main.css" type="text/css" rel="stylesheet" />
+  </head>
+
+  <body>
+
+
+    <form method="post">
+
+        <label for="destination" class="label-input">
+          <span>Destinado a</span>
+          <select name="destination" id="destination">
+            <option value="" selected disabled>-- Elige un Destino --</option>
+            <option value="all">Todos</option>
+          </select>
+        </label>
+
+        <label for="title" class="label-input">
+          <span>Titulo</span>
+          <input type="text" name="title" id="title">
+        </label>
+
+        <label for="body" class="label-input">
+          <span>Mensaje</span>
+          <textarea name="body" id="body"></textarea>
+        </label>
+
+        <button>Enviar Notificacion</button>
+
+
+    </form>
+
+    <script type="module" src="./src/renderer.js"></script>
+  </body>
+</html>
