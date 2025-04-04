@@ -40,8 +40,10 @@ const createWindow = () => {
       contextIsolation: true,
       nodeIntegration: false,
       enableRemoteModule: false,
-      sandbox: false
+      sandbox: false,
+      
     }
+    
   })
   modal.on('close', e => {
     e.preventDefault()
@@ -82,6 +84,11 @@ const createWindow = () => {
 }
 
 app.on('ready', e => {
+  app.setLoginItemSettings({
+    openAtLogin: true,
+    path: process.execPath,
+  });
+
   const { mw, modal } = createWindow()
   let ws = useWebSocket('ws://localhost:5001')
 
@@ -149,4 +156,5 @@ app.on('ready', e => {
       return res
     }
   })
+
 })
