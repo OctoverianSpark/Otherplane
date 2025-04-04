@@ -57,7 +57,7 @@ app.whenReady().then(() => {
 
   const mainWindow = createWindow();
 
-  let ws = new WebSocket('ws://localhost:5001')
+  let ws = new WebSocket('wss://otherplanesocket.asistentevirtualsas.com')
 
   ws.onopen = () => console.log('Conectado al WebSocket')
 
@@ -94,7 +94,7 @@ app.whenReady().then(() => {
     console.log("Datos solicitados por Renderer");
     try {
       const res = await axios.get(
-        "https://apitester.asistentevirtualsas.com/inv/all"
+        "https://otherplane.asistentevirtualsas.com/inv/all"
       );
       return res.data ?? [];
     } catch (err) {

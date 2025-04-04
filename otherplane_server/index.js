@@ -1,7 +1,7 @@
 import { WebSocketServer } from 'ws'
 import express from 'express'
 import router from './routes.js'
-
+import cors from 'cors'
 import dotenv from 'dotenv'
 
 dotenv.config()
@@ -21,9 +21,11 @@ wss.on('connection', ws => {
   })
 })
 
-const app = express()
+const app = express(cors({
+  origin: ['https://otherplane.asistentevirtualsas.com']
+}))
 app.use(express.json())
 
 app.use(router)
 
-app.listen(8647, console.log('Servidor Corriendo en 5000'))
+app.listen(8647, console.log('Servidor Corriendo en 8647'))
