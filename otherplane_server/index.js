@@ -6,7 +6,7 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
-const wss = new WebSocketServer({ port: 5001 })
+const wss = new WebSocketServer({ port: 6547 })
 
 wss.on('connection', ws => {
   console.log('Cliente conectado. Total clientes: ' + wss.clients.size)
@@ -26,4 +26,4 @@ app.use(express.json())
 
 app.use(router)
 
-app.listen(5000, console.log('Servidor Corriendo en 5000'))
+app.listen(8647, console.log('Servidor Corriendo en 5000'))
