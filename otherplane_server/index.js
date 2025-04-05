@@ -14,7 +14,7 @@ wss.on('connection', ws => {
   ws.on('message', message => {
     const decodedMessage = JSON.parse(Buffer.from(message))
     wss.clients.forEach(client => {
-      if (client !== ws && client.readyState === WebSocket.OPEN) {
+      if (client !== ws && client.readyStawte === WebSocket.OPEN) {
         client.send(JSON.stringify(decodedMessage))
       }
     })
@@ -24,6 +24,9 @@ wss.on('connection', ws => {
 const app = express(cors({
   origin: ['https://otherplane.asistentevirtualsas.com']
 }))
+
+app.set('trust proxy', true)
+
 app.use(express.json())
 
 app.use(router)
